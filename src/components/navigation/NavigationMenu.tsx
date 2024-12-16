@@ -8,52 +8,41 @@ interface NavItem {
   label: string;
 }
 
-const NAV_ITEMS: NavItem[] = [
+const navItems: NavItem[] = [
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
-]
+];
 
 export default function NavigationMenu() {
   const [selected, setSelected] = useState<string | null>(null);
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    const currentHash = window.location.hash.replace('#', '');
-    if (currentHash) {
-      const foundItem = NAV_ITEMS.find(item => item.id === currentHash);
-      if (foundItem) {
-        setSelected(foundItem.id);
-      } else {
-        setSelected(NAV_ITEMS[0].id);
-      }
-    } else {
-      setSelected(NAV_ITEMS[0].id);
-    }
     setHasMounted(true);
 
-    const sections = NAV_ITEMS.map(item => document.getElementById(item.id));
-    if (sections.some(section => !section)) {
-      console.warn("Some sections are not found:", sections);
-      return;
+    const ioConfiguration = {
+      rootMargin: '-50% 0% -50% 0%',
+      threshold: 0
     }
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
-          console.log(`Intersecting: ${entry.isIntersecting}, ID: ${entry.target.getAttribute('id')}`);
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
+            console.log(entry.target);
+            const id = entry.target.getAttribute("id");
             if (id) {
               setSelected(id);
-              window.history.pushState(null, '', `#${id}`);
+              window.history.pushState(null, "", `#${id}`);
             }
           }
         });
       },
-      { threshold: 0.7 }
+      ioConfiguration
     );
 
-    sections.forEach(section => {
+    navItems.forEach((item) => {
+      const section = document.getElementById(item.id);
       if (section) {
         observer.observe(section);
       }
@@ -66,7 +55,7 @@ export default function NavigationMenu() {
 
   const handleClick = (id: string) => {
     setSelected(id);
-    window.history.pushState(null, '', `#${id}`);
+    window.history.pushState(null, "", `#${id}`);
 
     const section = document.getElementById(id);
     if (section) {
@@ -81,9 +70,12 @@ export default function NavigationMenu() {
   return (
     <nav className="hidden lg:block lg:w-fit">
       <ul>
-        {NAV_ITEMS.map((item) => (
+        {navItems.map((item) => (
           <li key={item.id}>
-            <a className="w-fit" href={`#${item.label.toLowerCase().replace(/\s+/g, '-')}`}>
+            <a
+              className="w-fit"
+              href={`#${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+            >
               <NavigationItem
                 label={item.label}
                 selected={selected === item.id && hasMounted}
@@ -94,5 +86,5 @@ export default function NavigationMenu() {
         ))}
       </ul>
     </nav>
-  )
+  );
 }
