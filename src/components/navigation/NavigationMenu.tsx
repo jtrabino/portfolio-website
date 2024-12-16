@@ -31,16 +31,9 @@ export default function NavigationMenu() {
     }
     setHasMounted(true);
 
-    const sections = NAV_ITEMS.map(item => document.getElementById(item.id));
-    if (sections.some(section => !section)) {
-      console.warn("Some sections are not found:", sections);
-      return;
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          console.log(`Intersecting: ${entry.isIntersecting}, ID: ${entry.target.getAttribute('id')}`);
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id');
             if (id) {
@@ -50,10 +43,11 @@ export default function NavigationMenu() {
           }
         });
       },
-      { threshold: 0.7 }
+      { threshold: 0.60 } // Adjust this threshold as needed
     );
 
-    sections.forEach(section => {
+    NAV_ITEMS.forEach(item => {
+      const section = document.getElementById(item.id);
       if (section) {
         observer.observe(section);
       }
