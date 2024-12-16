@@ -3,6 +3,7 @@
 import { Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function ModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -20,8 +21,15 @@ export default function ModeToggle() {
   return (
     <div className="flex items-center">
       {mountedTheme && (
-        <button className="text-foreground" onClick={() => setTheme(mountedTheme === 'dark' ? 'light' : 'dark')}>
-          {mountedTheme === 'dark' ? <Moon size={19.2} /> : <Sun size={19.2} />}
+        <button className="text-foreground hover:text-muted-foreground transition-colors duration-300" onClick={() => setTheme(mountedTheme === 'dark' ? 'light' : 'dark')}>
+          <motion.div
+            key={mountedTheme}
+            initial={{ x: mountedTheme === 'light' ? -10 : 10, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {mountedTheme === 'dark' ? <Moon size={19.2} /> : <Sun size={19.2} />}
+          </motion.div>
         </button>
       )}
     </div>

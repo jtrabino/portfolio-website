@@ -25,10 +25,10 @@ export default function Home() {
               </h2>
               <div className="flex flex-row space-x-4 pt-1">
                 <a href="https://github.com/jtrabino" target="_blank" rel="noreferrer noopener">
-                  <FaGithub className="text-2xl" />
+                  <FaGithub className="text-2xl hover:text-muted-foreground transition-colors duration-300" />
                 </a>
                 <a href="https://www.linkedin.com/in/jtrabs/" target="_blank" rel="noreferrer noopener">
-                  <FaLinkedin className="text-2xl" />
+                  <FaLinkedin className="text-2xl hover:text-muted-foreground transition-colors duration-300" />
                 </a>
               </div>
             </div>

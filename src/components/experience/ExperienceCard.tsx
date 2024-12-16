@@ -27,7 +27,7 @@ export default function ExperienceCard({title, company, duration, description, i
         <div className="col-span-7">
           <h3 className="text-xl font-bold">{title}</h3>
           <h3 className="">{company}</h3>
-          <p className="text-muted-foreground">{description}</p>
+          <p className="text-secondary-foreground">{description}</p>
         </div>
       </div>
     </div>
