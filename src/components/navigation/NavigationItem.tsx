@@ -20,7 +20,7 @@ export default function NavigationItem({label, selected, onClick}: NavigationIte
         onMouseLeave={() => setIsHovered(false)}
       >
         <motion.div
-          className={`absolute left-0 h-[1px] bg-foreground group-hover:bg-muted-foreground ${selected ? "bg-muted-foreground" : ""}`}
+          className={`absolute left-0 h-[2px] bg-foreground group-hover:bg-muted-foreground ${selected ? "bg-muted-foreground" : ""}`}
           initial={{ width: 0, opacity: 0 }}
           animate={{
             width: selected || isHovered ? 24 : 0,
