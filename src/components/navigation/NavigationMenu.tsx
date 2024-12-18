@@ -60,8 +60,9 @@ export default function NavigationMenu() {
     const section = document.getElementById(id);
     if (section) {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const marginOffset = 96;
       window.scrollTo({
-        top: sectionTop,
+        top: sectionTop - marginOffset,
         behavior: "smooth"
       });
     }
