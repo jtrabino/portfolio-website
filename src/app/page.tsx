@@ -5,12 +5,13 @@ import { FaGithub } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa";
 import NavigationMenu from "@/components/navigation/NavigationMenu";
 import ExperienceCardList from "@/components/experience/ExperienceCardList";
+import ProjectCardList from "@/components/proj/ProjectCardList";
 import ModeToggle from "@/components/ModeToggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Home() {
   return (
-    <div className="px-36 mx-auto min-h-screen max-w-screen-2xl">
+    <div className="px-48 mx-auto min-h-screen max-w-screen-2xl">
       <div className="lg:grid lg:grid-cols-3">
         <div className="flex flex-row col-span-1 md:py-16 lg:py-24 lg:sticky lg:top-0 lg:max-h-screen lg:min-h-screen mr-6">
           <div className="flex flex-col justify-between">
@@ -62,7 +63,7 @@ export default function Home() {
           </section>
           <section id="projects" className="scroll-mt-16 lg:scroll-mt-24 mt-24">
             <h1 className="text-2xl px-6 font-bold mb-6">Projects</h1>
-            <ExperienceCardList />
+            <ProjectCardList />
           </section>
         </div>
       </div>

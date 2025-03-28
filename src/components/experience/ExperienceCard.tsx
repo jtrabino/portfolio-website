@@ -15,6 +15,10 @@ interface ExperienceCardProps {
 
 export default function ExperienceCard({title, company, duration, description, isActive, onHover, onHoverEnd}: ExperienceCardProps) {
 
+  const formattedDescription = description.split("\n").map((line, index) => (
+    <p key={index} className="text-secondary-foreground py-1">{line}</p>
+  ));
+
   const containerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +59,9 @@ export default function ExperienceCard({title, company, duration, description, i
       <div className="col-span-7">
         <h3 className="text-lg font-bold">{title}</h3>
         <h3 className="">{company}</h3>
-        <p className="text-secondary-foreground">{description}</p>
+        <div className="mt-2">
+          {formattedDescription}
+        </div>
       </div>
     </div>
   )

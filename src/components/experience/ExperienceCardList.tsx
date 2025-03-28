@@ -9,25 +9,15 @@ const cardData = [
     title: "Admissions Officer",
     company: "Singapore Management University",
     duration: "Mar 2022 - Aug 2022",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies ac massa vel lobortis. In et dapibus lectus, et posuere nunc. Quisque imperdiet maximus eros at rutrum. Donec ex orci, dignissim in ante id, volutpat rutrum lorem. In in consequat eros. Aliquam eu cursus velit. Proin consequat dolor felis, sit amet eleifend lorem hendrerit vel. Donec ultricies tincidunt rhoncus. Mauris pretium arcu turpis, vitae fringilla tortor consequat vitae. Maecenas lorem neque, mattis vitae elit non, ornare gravida purus. Mauris semper dignissim lorem vitae pharetra.",
+    description: "Managed student admission processes and coordinated interviews and tests for prospective students. Conducted data analysis for the social media accounts, providing feedback for improved cost-effectiveness of promotional posts.",
   },
   {
     id: 2,
     title: "Freelance Web Developer",
     company: "Guidesify",
     duration: "Jun 2024 - Present",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies ac massa vel lobortis. In et dapibus lectus, et posuere nunc. Quisque imperdiet maximus eros at rutrum. Donec ex orci, dignissim in ante id, volutpat rutrum lorem. In in consequat eros. Aliquam eu cursus velit. Proin consequat dolor felis, sit amet eleifend lorem hendrerit vel. Donec ultricies tincidunt rhoncus. Mauris pretium arcu turpis, vitae fringilla tortor consequat vitae. Maecenas lorem neque, mattis vitae elit non, ornare gravida purus. Mauris semper dignissim lorem vitae pharetra.",
+    description: "Designed and developed websites using WordPress on a freelance basis.",
   },
-  {
-    id: 3,
-    title: "Job 3",
-    company: "Company XXX",
-    duration: "Then - Now",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies ac massa vel lobortis. In et dapibus lectus, et posuere nunc. Quisque imperdiet maximus eros at rutrum. Donec ex orci, dignissim in ante id, volutpat rutrum lorem. In in consequat eros. Aliquam eu cursus velit. Proin consequat dolor felis, sit amet eleifend lorem hendrerit vel. Donec ultricies tincidunt rhoncus. Mauris pretium arcu turpis, vitae fringilla tortor consequat vitae. Maecenas lorem neque, mattis vitae elit non, ornare gravida purus. Mauris semper dignissim lorem vitae pharetra.",
-  }
 ];
 
 export default function ExperienceCardList() {
