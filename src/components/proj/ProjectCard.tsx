@@ -47,7 +47,7 @@ export default function ProjectCard({title, description, link, isActive, isHover
           rel="noreferrer noopener"
           target="_blank"
           ref={containerRef as React.RefObject<HTMLAnchorElement>}
-          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent hover:border-secondary rounded-lg ${
+          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 p-4 border border-transparent hover:border-secondary rounded-lg ${
             isActive ? "opacity-100" : "opacity-35"
           }`}
           onMouseEnter={onHover}
@@ -62,12 +62,12 @@ export default function ProjectCard({title, description, link, isActive, isHover
           />
           <div className="col-span-10">
             <span>
-              <span className="text-lg font-bold mr-1">
+              <span className="lg:text-lg text-base font-bold mr-1">
                 {title}
               </span>
               <ExternalLinkIcon isHovered={isHovered} />
             </span>
-            <div className="mt-2">
+            <div className="lg:text-base text-sm mt-2">
               {formattedDescription}
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function ProjectCard({title, description, link, isActive, isHover
       ) : (
         <div
           ref={containerRef as React.RefObject<HTMLDivElement>}
-          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent rounded-lg ${
+          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 p-4 border border-transparent rounded-lg ${
             isActive ? "opacity-100" : "opacity-35"
           }`}
           onMouseEnter={onHover}
@@ -90,11 +90,11 @@ export default function ProjectCard({title, description, link, isActive, isHover
           />
           <div className="col-span-10">
             <span>
-              <span className="text-lg font-bold mr-1">
+              <span className="lg:text-lg text-base font-bold mr-1">
                 {title}
               </span>
             </span>
-            <div className="mt-2">
+            <div className="lg:text-base text-sm mt-2">
               {formattedDescription}
             </div>
           </div>

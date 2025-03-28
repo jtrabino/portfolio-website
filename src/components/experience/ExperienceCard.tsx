@@ -40,7 +40,7 @@ export default function ExperienceCard({title, company, duration, description, i
   return (
     <div
       ref={containerRef}
-      className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent hover:border-secondary rounded-lg ${
+      className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 p-4 border border-transparent hover:border-secondary rounded-lg ${
         isActive ? "opacity-100" : "opacity-35"
       }`}
       onMouseEnter={onHover}
@@ -53,13 +53,13 @@ export default function ExperienceCard({title, company, duration, description, i
           transform: "translate(var(--x), var(--y))"
         }}
       />
-      <div className="col-span-3 mr-6">
+      <div className="col-span-3 mr-6 lg:text-base text-[14px]">
         {duration}
       </div>
       <div className="col-span-7">
-        <h3 className="text-lg font-bold">{title}</h3>
-        <h3 className="">{company}</h3>
-        <div className="mt-2">
+        <h3 className="lg:text-lg text-base font-bold">{title}</h3>
+        <h3 className="lg:text-base text-sm">{company}</h3>
+        <div className="lg:text-base text-sm mt-2">
           {formattedDescription}
         </div>
       </div>
