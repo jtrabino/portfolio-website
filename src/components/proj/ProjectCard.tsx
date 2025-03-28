@@ -8,7 +8,7 @@ import { ExternalLinkIcon } from "../ui/external-link";
 interface ProjectCardProps {
   title: string;
   description: string;
-  link: string;
+  link: string | null;
   isActive: boolean;
   isHovered: boolean;
   onHover: () => void;
@@ -21,7 +21,7 @@ export default function ProjectCard({title, description, link, isActive, isHover
     <p key={index} className="text-secondary-foreground py-1">{line}</p>
   ));
 
-  const containerRef = useRef<HTMLAnchorElement>(null);
+  const containerRef = useRef<HTMLDivElement | HTMLAnchorElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const update = useCallback(({ x, y }: { x: number; y: number }) => {
@@ -40,39 +40,66 @@ export default function ProjectCard({title, description, link, isActive, isHover
   useMousePosition(containerRef as React.RefObject<HTMLElement>, update);
 
   return (
-    <Link
-      href={link}
-      rel="noreferrer noopener"
-      target="_blank"
-      ref = {containerRef}
-      className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 p-6 border border-transparent hover:border-secondary rounded-lg ${
-        isActive ? "opacity-100" : "opacity-35"
-      }`}
-      onMouseEnter={onHover}
-      onMouseLeave={onHoverEnd}
-      
-    >
-      <div
-        ref = {overlayRef}
-        className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
-        style={{
-          transform: "translate(var(--x), var(--y))"
-        }}
-      />
-      {/* <div className="col-span-3 mr-6">
-
-      </div> */}
-      <div className="col-span-10">
-        <span>
-          <span className="text-lg font-bold mr-1">
-            {title}
-          </span>
-          <ExternalLinkIcon isHovered={isHovered} />
-        </span>
-        <div className="mt-2">
-          {formattedDescription}
+    <>
+      {link ? (
+        <Link
+          href={link}
+          rel="noreferrer noopener"
+          target="_blank"
+          ref={containerRef as React.RefObject<HTMLAnchorElement>}
+          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent hover:border-secondary rounded-lg ${
+            isActive ? "opacity-100" : "opacity-35"
+          }`}
+          onMouseEnter={onHover}
+          onMouseLeave={onHoverEnd}
+        >
+          <div
+            ref={overlayRef}
+            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
+            style={{
+              transform: "translate(var(--x), var(--y))"
+            }}
+          />
+          <div className="col-span-10">
+            <span>
+              <span className="text-lg font-bold mr-1">
+                {title}
+              </span>
+              <ExternalLinkIcon isHovered={isHovered} />
+            </span>
+            <div className="mt-2">
+              {formattedDescription}
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <div
+          ref={containerRef as React.RefObject<HTMLDivElement>}
+          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent rounded-lg ${
+            isActive ? "opacity-100" : "opacity-35"
+          }`}
+          onMouseEnter={onHover}
+          onMouseLeave={onHoverEnd}
+        >
+          <div
+            ref={overlayRef}
+            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
+            style={{
+              transform: "translate(var(--x), var(--y))"
+            }}
+          />
+          <div className="col-span-10">
+            <span>
+              <span className="text-lg font-bold mr-1">
+                {title}
+              </span>
+            </span>
+            <div className="mt-2">
+              {formattedDescription}
+            </div>
+          </div>
         </div>
-      </div>
-    </Link>
+      )}
+    </>
   )
 }

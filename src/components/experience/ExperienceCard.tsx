@@ -35,12 +35,12 @@ export default function ExperienceCard({title, company, duration, description, i
     overlayRef.current?.style.setProperty("--y", `${yOffset}px`);
   }, []);
 
-  useMousePosition(containerRef, update);
+  useMousePosition(containerRef as React.RefObject<HTMLElement>, update);
 
   return (
     <div
-      ref = {containerRef}
-      className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 p-6 border border-transparent hover:border-secondary rounded-lg ${
+      ref={containerRef}
+      className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 md:p-4 border border-transparent hover:border-secondary rounded-lg ${
         isActive ? "opacity-100" : "opacity-35"
       }`}
       onMouseEnter={onHover}

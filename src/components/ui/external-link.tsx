@@ -12,8 +12,8 @@ export const ExternalLinkIcon = ({ isHovered }: ExternalLinkIconProps) => {
     <motion.span
       initial={{ x: 0, y: 0 }}
       animate={{
-        x: isHovered ? 2 : 0,
-        y: isHovered ? -2 : 0,
+        x: isHovered ? 4 : 0,
+        y: isHovered ? -4 : 0,
       }}
       transition={{ type: "spring", stiffness: 400, damping: 20 }}
       className="inline-block"

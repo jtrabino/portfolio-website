@@ -19,7 +19,7 @@ export default function ModeToggle() {
   }, [isMounted, theme]);
 
   return (
-    <div className="flex items-center">
+    <div className="hidden lg:flex lg:items-center">
       {mountedTheme && (
         <button className="text-foreground hover:text-muted-foreground transition-colors duration-300" onClick={() => setTheme(mountedTheme === 'dark' ? 'light' : 'dark')}>
           <motion.div
