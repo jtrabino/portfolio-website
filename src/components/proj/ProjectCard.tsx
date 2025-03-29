@@ -55,19 +55,19 @@ export default function ProjectCard({title, description, link, isActive, isHover
         >
           <div
             ref={overlayRef}
-            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
+            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 hidden md:block"
             style={{
               transform: "translate(var(--x), var(--y))"
             }}
           />
           <div className="col-span-10">
             <span>
-              <span className="lg:text-lg text-base font-bold mr-1">
+              <span className="md:text-lg text-base font-bold mr-1">
                 {title}
               </span>
               <ExternalLinkIcon isHovered={isHovered} />
             </span>
-            <div className="lg:text-base text-sm mt-2">
+            <div className="md:text-base text-sm mt-2">
               {formattedDescription}
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function ProjectCard({title, description, link, isActive, isHover
       ) : (
         <div
           ref={containerRef as React.RefObject<HTMLDivElement>}
-          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 p-4 border border-transparent rounded-lg ${
+          className={`group relative overflow-hidden grid grid-cols-10 transition-opacity duration-300 lg:p-6 p-4 border border-transparent hover:border-secondary rounded-lg ${
             isActive ? "opacity-100" : "opacity-35"
           }`}
           onMouseEnter={onHover}
@@ -83,18 +83,18 @@ export default function ProjectCard({title, description, link, isActive, isHover
         >
           <div
             ref={overlayRef}
-            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
+            className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 hidden md:block"
             style={{
               transform: "translate(var(--x), var(--y))"
             }}
           />
           <div className="col-span-10">
             <span>
-              <span className="lg:text-lg text-base font-bold mr-1">
+              <span className="md:text-lg text-base font-bold mr-1">
                 {title}
               </span>
             </span>
-            <div className="lg:text-base text-sm mt-2">
+            <div className="md:text-base text-sm mt-2">
               {formattedDescription}
             </div>
           </div>

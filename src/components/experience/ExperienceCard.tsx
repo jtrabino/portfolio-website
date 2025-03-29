@@ -48,18 +48,18 @@ export default function ExperienceCard({title, company, duration, description, i
     >
       <div
         ref = {overlayRef}
-        className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 "
+        className="-z-1 absolute h-[532px] w-[532px] rounded-full bg-muted-foreground opacity-0 bg-blend-soft-light blur-3xl transition-opacity group-hover:opacity-15 hidden md:block"
         style={{
           transform: "translate(var(--x), var(--y))"
         }}
       />
-      <div className="col-span-3 mr-6 lg:text-base text-[14px]">
+      <div className="col-span-3 mr-6 md:text-base text-sm">
         {duration}
       </div>
       <div className="col-span-7">
-        <h3 className="lg:text-lg text-base font-bold">{title}</h3>
-        <h3 className="lg:text-base text-sm">{company}</h3>
-        <div className="lg:text-base text-sm mt-2">
+        <h3 className="md:text-lg text-base font-bold">{title}</h3>
+        <h3 className="md:text-base text-sm">{company}</h3>
+        <div className="md:text-base text-sm mt-2">
           {formattedDescription}
         </div>
       </div>
