@@ -14,7 +14,6 @@ const cardData = [
     id: 2,
     title: "UBS Transactions",
     description: "A web application built for a school project with sponsorship from UBS. The application is a CRM system for UBS agents to manage transactions and client information.",
-    link: "https://github.com/cs301-itsa/project-2024-25t1-g2-t1",
   },
   {
     id: 3,
